@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git brnch: 'main', url 'https://github.com/rowald25/ITMstan.git'
+                git branch: 'main', url: 'https://github.com/rowald25/ITMstan.git'
             }
         }
         stage('build') {
