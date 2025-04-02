@@ -6,27 +6,23 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/rowald25/ITMstan.git'
             }
         }
-        stage('Build Frontend') {
+        stage('Build') {
             steps {
-                script {
-                    echo 'Building frontend application...'
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
+                echo 'Building project...'
+                // Voeg hier je daadwerkelijke build stappen toe, bijvoorbeeld:
+                // bat 'npm install'
+                // bat 'npm run build'
             }
         }
-        stage('Security Test') {
+        stage('OWASP Dependency Check') {
             steps {
-                script {
-                    echo 'Running security tests...'
-                    // Voeg hier je OWASP Dependency Check stappen toe
-                    sh 'dependency-check.sh --project "MyProject" --scan . --format "ALL"'
-                }
+                bat 'dependency-check.bat --project "MyProject" --scan . --format "ALL"'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying project...'
+                // Voeg hier je daadwerkelijke deploy stappen toe
             }
         }
     }
